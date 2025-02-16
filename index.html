@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clypeus Safe ID - Comparte tu DNI de Forma Segura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Protege tu identidad con Clypeus Safe ID, aplicando marcas de agua y ofuscando datos sensibles de tu DNI.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/clypeus-icon-32x32.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a202c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="flex flex-col items-center pt-8 pb-20 bg-gray-100">
+    <header class="w-full max-w-4xl p-4 text-center">
+        <img src="/clypeus-logo.png" alt="Clypeus Safe ID" class="mx-auto mb-4 h-16">
+        <h1 class="text-3xl font-bold text-gray-800">Protege tu Identidad con Clypeus</h1>
+    </header>
+
+    <main class="w-full max-w-4xl p-6 bg-white shadow-lg rounded-lg">
+        <div id="step1" class="space-y-6">
+            <label class="block text-center cursor-pointer border-2 border-dashed p-6 rounded-lg bg-gray-50 hover:bg-gray-100">
+                <input type="file" id="imageInput" accept=".jpg,.jpeg,.png" class="hidden">
+                <p class="text-lg text-gray-600">Arrastra o selecciona tu imagen</p>
+                <p class="text-sm text-gray-500 mt-2">Formatos soportados: JPG, PNG</p>
+            </label>
+            <div>
+                <input type="text" id="watermarkText" maxlength="60" placeholder="Texto de la marca de agua" 
+                    class="w-full p-3 border rounded-lg text-center text-lg">
+                <p class="mt-2 text-sm text-gray-600">Ejemplo: "Para validación en Banco XYZ - 2025"</p>
+            </div>
+            <button id="nextToPreviewBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                Siguiente
+            </button>
+        </div>
+        
+        <div id="step2" class="hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Vista Previa y Protección</h2>
+            <canvas id="originalCanvas" class="w-full border rounded-lg"></canvas>
+            <button id="enableBlurBtn" class="w-full mt-4 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700">
+                Ofuscar Datos
+            </button>
+            <button id="nextToWatermarkBtn" class="w-full mt-4 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">
+                Aplicar Marca de Agua
+            </button>
+        </div>
+
+        <div id="step3" class="hidden">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado Final</h2>
+            <canvas id="canvas" class="w-full border rounded-lg"></canvas>
+            <button id="downloadBtn" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+                Descargar Imagen Protegida
+            </button>
+        </div>
+    </main>
+
+    <footer class="w-full text-center text-gray-600 text-sm mt-8">
+        <p>Desarrollado por <strong>Clypeus</strong>. Protección de identidad de última generación.</p>
+    </footer>
+
+    <script src="/app.js"></script>
+</body>
+</html>
